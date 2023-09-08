@@ -12,6 +12,34 @@
 
 <body>
     <main>
+       <nav>
+        
+            <a class="home">
+                <i class="material-icons-outlined">home</i>
+            </a>
+            <a class="explore">
+                <i class="material-icons-outlined">grid_view</i>
+            </a>
+            <a class="notifications">
+                <i class="material-icons-outlined">notifications</i>
+            </a>
+        
+            <a class="bookmarks">
+                <i class="material-icons-outlined">bookmark</i>
+            </a>
+            <a class="settings">
+                <i class="material-icons-outlined icon">settings</i>
+            </a>
+            <a class="fashion-tips">
+                <i class="material-icons-outlined">lightbulb</i>
+            </a>
+            <a href="" class="user-account">
+                <i class="material-icons-outlined">
+                    account_circle
+                </i>
+            </a>
+    
+       </nav>
         <div class="left-sidebar">
             <div class="logo">
                 Fashion <span>Hub</span>
@@ -145,7 +173,7 @@
                     </button>
                 </div>
             </div>
-            <h3>Stories</h3>
+            <!-- <h3>Stories</h3>
             <div class="stories">
                 <div class="add-story story">
                     <div class="add-story-btn">
@@ -183,7 +211,7 @@
                     </div>
                     <span class="user-name">Ryan</span>
                 </div>
-            </div>
+            </div> -->
             <div class="feeds">
                 <div class="feeds-btns">
                     <h3>Feeds</h3>
@@ -288,15 +316,96 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="post">
+                            <div class="user-info">
+                                <div class="user">
+                                    <div class="user-avatar-container">
+                                        <img class="post-avatar"
+                                            src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png" alt="">
+                                    </div>
+                                    <div class="user-name">
+                                        <p>John Doe</p>
+                                        <p>2 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="post-options">
+                                    <i class="material-icons-outlined">more_vert</i>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-media">
+                                    <img src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png" alt="">
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem
+                                    ipsum sit amet.
+                                    <span>Read more</span>
+                                </p>
+                            </div>
+                            <div class="post-reactions">
+                                <div class="reactions">
+                                    <div class="reaction">
+                                        <i class="material-icons-outlined">thumb_up</i>
+                                        <span class="reaction-counter">0</span>
+                                    </div>
+                                    <div class="reaction">
+                                        <i class="material-icons-outlined">comment</i>
+                                        <span class="reaction-counter">0</span>
+                                    </div>
+                                    <div class="reaction">
+                                        <i class="material-icons-outlined">share</i>
+                                        <span class="reaction-counter">0</span>
+                                    </div>
+                                </div>
+                                <div class="save-post">
+                                    <i class="material-icons-outlined">bookmark</i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="right-sidebar">
-            <div class="user-profile">
+            <h3>Stories</h3>
+            <div class="stories">
+                <div class="add-story story">
+                    <div class="add-story-btn">
+                        <i class="material-icons-outlined">add</i>
+                    </div>
+                    <span id="add-story" class="user-name">Add Story</span>
+                </div>
+                <div class=" story">
+                    <div class="story-details">
+                        <div class="story-avatar">
+                            <img class="user-avatar"
+                                src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png" alt="">
+                        </div>
+                    </div>
+                    <span class="user-name">Ryan</span>
+                </div>
+                <div class=" story">
+                    <div class="story-details">
+                        <div class="story-avatar">
+                            <img class="user-avatar"
+                                src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png" alt="">
+                        </div>
+                    </div>
+                    <span class="user-name">Ryan</span>
+                </div>
+                <div class=" story">
+                    <div class="story-details">
+                        <div class="story-avatar">
+                            <img class="user-avatar"
+                                src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png" alt="">
+                        </div>
+                    </div>
+                    <span class="user-name">Ryan</span>
+                </div>
+            </div>
+            <!-- <div class="user-profile">
                 <div>
-                    <img class="avatar" src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png"
-                        alt="">
+                    <img class="avatar"
+                        src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png" alt="">
                 </div>
                 <div class="user-profile-name">
                     <p id="name">John Doe</p>
@@ -316,8 +425,8 @@
                         <span>Following</span>
                     </div>
                 </div>
-            </div>
-            
+            </div> -->
+            <hr>
             <div class="friend-requests">
                 <div class="freind-requests-header">
                     <h3>Friend Requests</h3>
@@ -328,7 +437,8 @@
                     <div class="request">
                         <div class="user">
                             <div>
-                                <img class="avatar" src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png"
+                                <img class="avatar"
+                                    src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png"
                                     alt="">
                             </div>
                             <div class="user-profile-name">
@@ -339,10 +449,54 @@
                             <button id="accept">Accept</button>
                             <button id="decline">Decline</button>
                         </div>
-                        
+                    </div>
+                    <div class="request">
+                        <div class="user">
+                            <div>
+                                <img class="avatar"
+                                    src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png"
+                                    alt="">
+                            </div>
+                            <div class="user-profile-name">
+                                <p> <span id="friends-name">John Doe</span> wants to be friends with you.</p>
+                            </div>
+                        </div>
+                        <div class="request-reaction-btns">
+                            <button id="accept">Accept</button>
+                            <button id="decline">Decline</button>
+                        </div>
                     </div>
                 </div>
+                <div class="view-more-btn">
+                    <span>View All</span>
+                </div>
             </div>
+            <hr>
+            <div class="suggestions">
+                <h3>Suggestions for you</h3>
+                <div class="suggested">
+                    <div class="suggested-friend">
+                        <div class="user">
+                            <div>
+                                <img class="avatar"
+                                    src="https://www.pngitem.com/pimgs/m/272-2720656_user-profile-dummy-hd-png-download.png"
+                                    alt="">
+                            </div>
+                            <div class="user-profile-name">
+                                <p id="name">John Doe</p>
+                                <p id="location">Nyeri, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="person_add-icon">
+                            <i class="material-icons-outlined">person_add</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more-btn">
+                    <span>View All</span>
+                </div>
+            </div>
+
         </div>
     </main>
 </body>
