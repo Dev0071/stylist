@@ -59,7 +59,7 @@ nav {
 }
 
 
- .logo {
+.logo {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -70,7 +70,7 @@ nav {
     margin-bottom: 0.5rem;
 }
 
- .logo span {
+.logo span {
     color: var(--tertiary-color);
 }
 
@@ -194,8 +194,8 @@ hr {
 .home-btns>div:hover {
     /* color: var(--tertiary-color); */
     background-color: var(--tertiary-color);
-        color: var(--secondary-color);
-        border-radius: 10px;
+    color: var(--secondary-color);
+    border-radius: 10px;
 }
 
 /* .home-btns > div .icon{
@@ -315,16 +315,19 @@ hr {
     overflow-y: auto;
     padding: 0.5rem 0 0 1.5rem;
 }
-.logo-container{
-display: none;
+
+.logo-container {
+    display: none;
 }
+
 .feeds-nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
 }
-.stories-container{
+
+.stories-container {
     display: none;
 }
 
@@ -726,11 +729,13 @@ display: none;
     font-size: 30px;
     color: var(--tertiary-color);
 }
+
 .active {
     background-color: var(--tertiary-color);
     color: var(--secondary-color);
     border-radius: 10px;
 }
+
 @media screen and (max-width: 1108px) {
     main {
         width: 100%;
@@ -741,7 +746,8 @@ display: none;
         display: none;
 
     }
-    .logo-container{
+
+    .logo-container {
         display: block;
     }
 
@@ -772,7 +778,7 @@ display: none;
     }
 
     nav a:hover {
-        background : var(--tertiary-color);
+        background: var(--tertiary-color);
     }
 
     /* nav a.active {
@@ -796,28 +802,32 @@ display: none;
     nav {
         display: none;
     }
-    .stories-container{
+
+    .stories-container {
         display: block;
     }
-    .logo-container{
+
+    .logo-container {
         display: none;
     }
 
 }
 
 @media screen and (max-width: 700px) {
-    .feeds-container{
+    .feeds-container {
         padding: 10px;
     }
-    .logo-container{
+
+    .logo-container {
         display: block;
     }
 
     .left-sidebar {
         display: none;
     }
-        nav {
-            display: inline-block;
-            display: flex;
-        }
+
+    nav {
+        display: inline-block;
+        display: flex;
+    }
 }

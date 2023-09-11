@@ -24,4 +24,4 @@ class DB {
 	};
 }
 
-export { DB };
+export { DB }
