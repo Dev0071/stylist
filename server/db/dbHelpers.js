@@ -1,4 +1,4 @@
-import { pool } from '../db/dbconfig.j';
+import { pool } from '../db/dbconfig.js';
 
 class DB {
 	static addRequeststoInput = async (request, data = {}) => {

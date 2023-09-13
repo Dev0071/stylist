@@ -1,11 +1,13 @@
 -- Create the Users table with UUID primary key
+
 CREATE TABLE users (
-    userId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    userId UNIQUEIDENTIFIER PRIMARY KEY,
     username NVARCHAR(255) NOT NULL,
     email NVARCHAR(255) NOT NULL UNIQUE,
     [password] NVARCHAR(255) NOT NULL,
-    isVerified BIT,
-    createdAt DATETIME2 DEFAULT GETDATE()
+    isVerified BIT DEFAULT 0, -- Set the default value to false
+    createdAt DATETIME2 DEFAULT GETDATE(),
+    userimage NVARCHAR(255) -- Add the userimage column
 );
 
 -- Create the Posts table with UUID primary key
@@ -17,6 +19,8 @@ CREATE TABLE posts (
     createdAt DATETIME2 DEFAULT GETDATE(),
     FOREIGN KEY (whoPostedId) REFERENCES Users(userId)
 );
+
+select * from posts;
 
 -- Create the Comments table with UUID primary key
 CREATE TABLE comments (
@@ -55,6 +59,12 @@ CREATE TABLE userWardrobe (
     FOREIGN KEY (whoseWardrobeId) REFERENCES Users(userId)
 );
 
+ALTER TABLE userWardrobe
+ADD whichPostId UNIQUEIDENTIFIER,
+FOREIGN KEY (whichPostId) REFERENCES posts(postId);
+
+select * from userWardrobe;
+
 -- Create the stories table with UUID primary key
 CREATE TABLE stories (
     storyId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
@@ -64,3 +74,12 @@ CREATE TABLE stories (
     details NVARCHAR(MAX),
     FOREIGN KEY (whoseStoriesId) REFERENCES Users(userId)
 );
+
+ALTER TABLE userWardrobe
+DROP CONSTRAINT FK__userWardr__which__5BE2A6F2;
+
+ALTER TABLE userWardrobe
+ADD CONSTRAINT FK_userWardrobe_posts
+FOREIGN KEY (whichPostId)
+REFERENCES posts (postId)
+ON DELETE CASCADE;
