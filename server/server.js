@@ -3,6 +3,7 @@ import  'express-session';
 import dotenv from 'dotenv';
 import userRouter from './routes/userRoutes.js';
 import postRouter from './routes/postRoutes.js';
+import friendRequestRouter from './routes/friendRequests.js';
 import commentRouter from './routes/commentsRoutes.js';
 import { connectToPool } from './db/dbconfig.js';
 import cookieParser from 'cookie-parser';
@@ -30,6 +31,7 @@ app.use(
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/posts', postRouter);
 app.use('/api/v1/comments', commentRouter);
+app.use('/api/v1/friendrequests', friendRequestRouter);
 
 
 app.get('/', (req, res) => {

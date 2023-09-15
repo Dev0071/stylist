@@ -108,3 +108,26 @@ export const deletePost = async (req, res) => {
 		return res.status(500).json({ error: error.message });
 	}
 };
+
+export const likePost = async (req, res) => {
+	try {
+		const { postId, userId } = req.body;
+
+		if (!postId || !userId) {
+			return res.status(400).json({ error: 'Missing required fields' });
+		}
+
+		const response = await DB.exec('spLikeOrUnlikePost', {
+			postId,
+			userId,
+		});
+
+		if (response.rowsAffected[0] === 1) {
+			return res.status(200).json({ message: 'Post liked successfully' });
+		} else {
+			return res.status(500).json({ error: 'Failed to like post' });
+		}
+	} catch (error) {
+		return res.status(500).json({ error: error.message });
+	}
+};

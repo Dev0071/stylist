@@ -42,3 +42,18 @@ SELECT * FROM users;
 
 
 
+GO 
+CREATE PROCEDURE spGetUserById
+    @userId UNIQUEIDENTIFIER
+AS
+BEGIN
+    -- Check if the user with the given userId exists
+    IF NOT EXISTS (SELECT 1 FROM Users WHERE userId = @userId)
+    BEGIN
+        -- If the user doesn't exist, return an error
+        THROW 50001, 'User not found', 1;
+    END
+
+    -- Retrieve user information by userId
+    SELECT * FROM Users WHERE userId = @userId;
+END;

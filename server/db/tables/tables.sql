@@ -9,6 +9,7 @@ CREATE TABLE users (
     createdAt DATETIME2 DEFAULT GETDATE(),
     userimage NVARCHAR(255) -- Add the userimage column
 );
+ SELECT * FROM users;
 
 -- Create the Posts table with UUID primary key
 CREATE TABLE posts (
@@ -57,6 +58,7 @@ CREATE TABLE friendRequest (
     FOREIGN KEY (whoRequestedId) REFERENCES Users(userId)
 );
 
+SELECT * FROM friendRequest;
 
 ALTER TABLE friendRequest
 ADD receiverId UNIQUEIDENTIFIER;
@@ -66,6 +68,16 @@ SELECT * FROM friendRequest;
 ALTER TABLE friendRequest
 ALTER COLUMN isAccepted BIT DEFAULT 0;
 
+CREATE TABLE friends (
+    friendshipId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    userId1 UNIQUEIDENTIFIER NOT NULL,
+    userId2 UNIQUEIDENTIFIER NOT NULL,
+    createdAt DATETIME2 DEFAULT GETDATE(),
+    FOREIGN KEY (userId1) REFERENCES Users(userId),
+    FOREIGN KEY (userId2) REFERENCES Users(userId)
+);
+
+SELECT * FROM friends;
 
 -- Create the userWardrobe table with UUID primary key
 CREATE TABLE userWardrobe (
@@ -99,3 +111,13 @@ ADD CONSTRAINT FK_userWardrobe_posts
 FOREIGN KEY (whichPostId)
 REFERENCES posts (postId)
 ON DELETE CASCADE;
+
+
+CREATE TABLE postLikes (
+    likeId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    postId UNIQUEIDENTIFIER NOT NULL,
+    userId UNIQUEIDENTIFIER NOT NULL,
+    likedAt DATETIME2 DEFAULT GETDATE(),
+    FOREIGN KEY (postId) REFERENCES Posts(postId),
+    FOREIGN KEY (userId) REFERENCES Users(userId)
+);

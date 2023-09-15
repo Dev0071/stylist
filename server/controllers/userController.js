@@ -59,6 +59,21 @@ export const loginUser = async (req, res) => {
 	}
 };
 
+export const getUser = async (req, res) => {
+	try {
+		const { userId } = req.params;
+		const response = await DB.exec('spGetUserById', { userId });
+		const user = response.recordset[0];
+		if (!user) {
+			return res.status(404).json({ error: 'User not found' });
+		}
+		const User = { ...user, password: undefined };
+		return res.status(200).json({ User });
+	} catch (error) {
+		return res.status(500).json({ error: error.message });
+	}
+};
+
 export const logoutUser = (req, res) => {
 	try {
 		// Clear the user's session (if you're using sessions)
