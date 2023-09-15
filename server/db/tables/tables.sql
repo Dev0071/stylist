@@ -42,6 +42,12 @@ CREATE TABLE commentsOnComment (
     FOREIGN KEY (whatCommentId) REFERENCES Comments(commentId)
 );
 
+ALTER TABLE commentsOnComment
+ADD whocommentedId UNIQUEIDENTIFIER;
+
+SELECT * FROM commentsOnComment;
+
+
 -- Create the friendRequest table with UUID primary key
 CREATE TABLE friendRequest (
     requestId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
@@ -50,6 +56,16 @@ CREATE TABLE friendRequest (
     createdAt DATETIME2 DEFAULT GETDATE(),
     FOREIGN KEY (whoRequestedId) REFERENCES Users(userId)
 );
+
+
+ALTER TABLE friendRequest
+ADD receiverId UNIQUEIDENTIFIER;
+
+SELECT * FROM friendRequest;
+
+ALTER TABLE friendRequest
+ALTER COLUMN isAccepted BIT DEFAULT 0;
+
 
 -- Create the userWardrobe table with UUID primary key
 CREATE TABLE userWardrobe (
