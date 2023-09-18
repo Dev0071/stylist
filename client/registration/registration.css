@@ -285,6 +285,19 @@ form.sign-in-form {
     pointer-events: all;
 }
 
+
+.errorDiv {
+    color: white;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    border-radius: 10px;
+}
+
+.error{
+background-color: rgb(231, 76, 76);
+}
 @media (max-width: 870px) {
     .container {
         min-height: 800px;

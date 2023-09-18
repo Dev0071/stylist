@@ -20,8 +20,18 @@ export const registerUser = async (req, res) => {
 		const userId = uuidv4();
 		const { username, password, email } = req.body;
 		const hashedPassword = await bcrypt.hash(password, 10);
-		 await DB.exec('spRegisterUser', {userId, username, password:hashedPassword, email });
-		return res.status(201).json({  message: "User created successfully" });
+		const response = await DB.exec('spRegisterUser', {
+			userId,
+			username,
+			password: hashedPassword,
+			email,
+		});
+		const new_user = response.recordset[0];
+		const User = { ...new_user, password: undefined };
+
+		const token = generateAccessToken(User);
+
+		return res.status(201).json({ message: 'User created successfully', User, token });
 	} catch (error) {
 		return res.status(500).json({ error: error.message });
 	}

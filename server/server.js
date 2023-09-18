@@ -1,6 +1,7 @@
 import express from 'express';
 import  'express-session';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import userRouter from './routes/userRoutes.js';
 import postRouter from './routes/postRoutes.js';
 import friendRequestRouter from './routes/friendRequests.js';
@@ -9,6 +10,9 @@ import { connectToPool } from './db/dbconfig.js';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import crypto from 'crypto';
+const corsOptions = {
+	origin: '*',
+};
 
 dotenv.config();
 
@@ -17,6 +21,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 const secret = crypto.randomBytes(20).toString('hex');
 app.use(

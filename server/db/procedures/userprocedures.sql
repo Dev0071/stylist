@@ -17,7 +17,7 @@ BEGIN
     VALUES (@userId, @username, @email, @password);
 
     -- Return a success message or the user's data as needed
-    SELECT 'User registered successfully' AS message;
+     SELECT @userId AS userId, @username AS username, @email AS email;
 END;
 
 GO
