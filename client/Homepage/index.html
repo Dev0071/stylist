@@ -13,26 +13,26 @@
 <body>
     <main>
        <nav>
-            <a class="home">
+            <a class="home" data-sectionId="home-feed">
                 <i class="material-icons-outlined">home</i>
             </a>
-            <a class="explore">
+            <a class="explore" data-sectionId="explore">
                 <i class="material-icons-outlined">grid_view</i>
             </a>
-            <a class="notifications">
+            <a class="notifications" data-sectionId="notifications">
                 <i class="material-icons-outlined">notifications</i>
             </a>
         
-            <a class="bookmarks">
+            <a class="bookmarks" data-sectionId="bookmarks">
                 <i class="material-icons-outlined">bookmark</i>
             </a>
-            <a class="settings">
+            <a class="settings" data-sectionId="settings">
                 <i class="material-icons-outlined icon">settings</i>
             </a>
-            <a class="fashion-tips">
+            <a class="fashion-tips" data-sectionId="tips">
                 <i class="material-icons-outlined">lightbulb</i>
             </a>
-            <a href="" class="user-account">
+            <a href="" class="user-account" data-sectionId="user-account">
                 <i class="material-icons-outlined">
                     account_circle
                 </i>
@@ -73,28 +73,28 @@
                 </div>
                 <hr>
                 <div class="home-btns">
-                    <div class="home ">
+                    <div class="home " data-sectionId="home-feed">
                         <i class="material-icons-outlined">home</i>
                         <span>Feed</span>
                     </div>
-                    <div class="explore">
+                    <div class="explore" data-sectionId="explore">
                         <i class="material-icons-outlined">grid_view</i>
                         <span>Explore</span>
                     </div>
-                    <div class="notifications">
+                    <div class="notifications" data-sectionId="notifications">
                         <i class="material-icons-outlined">notifications</i>
                         <span>Notifications</span>
                     </div>
 
-                    <div class="bookmarks">
+                    <div class="bookmarks" data-sectionId="bookmarks">
                         <i class="material-icons-outlined">bookmark</i>
                         <span>My wardrobe</span>
                     </div>
-                    <div class="settings">
+                    <div class="settings" data-sectionId="settings">
                         <i class="material-icons-outlined icon">settings</i>
                         <span>settings</span>
                     </div>
-                    <div class="fashion-tips">
+                    <div class="fashion-tips" data-sectionId="tips">
                         <i class="material-icons-outlined">lightbulb</i>
                         <span>Fashion tips</span>
                     </div>
@@ -158,6 +158,7 @@
             </div>
         </div>
         <div class="feeds-container">
+          
             <div class="logo-container">
                 <div class="logo">
                     Fashion <span>Hub</span>
@@ -215,7 +216,13 @@
                     </div>
                 </div>
             </div>
-            <div class="feeds">
+            <div class="section" id="explore">explore-feed</div>
+            <div class="section" id="notifications">notifications</div>
+            <div class="section" id="bookmarks">bookmarks</div>
+            <div class="section" id="settings">settings</div>
+            <div class="section" id="tips">tips</div>
+
+            <div class="feeds  main-container section" id="home-feed" >
                 <div class="feeds-btns">
                     <h3>Feeds</h3>
                     <div class="feeds-category-btns">
@@ -223,7 +230,7 @@
                         <button>Latest</button>
                     </div>
                 </div>
-                <div class="feed-posts">
+                <div class="feed-posts" >
                     <div class="scrollable">
                         <div id="post">
                             <div class="user-info">

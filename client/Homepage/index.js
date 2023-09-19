@@ -1,10 +1,10 @@
 /**
  * show different sections of the app based on the button clicked
  */
-console.log('index.js');
+
+const mainContainer = document.querySelector('.main-container');
 
 
-// Get references to the buttons and their corresponding content sections
 const buttons = document.querySelectorAll(
 	'.home, .explore, .notifications, .bookmarks, .settings, .fashion-tips',
 );
@@ -18,11 +18,21 @@ function toggleSection(event) {
 
 	// Add the "active" class to the clicked button
 	target.classList.add('active');
+	// mainContainer.innerHTML = '';
 
-	// You can define the corresponding content sections here and toggle their visibility
-	// Example:
-	// const section = document.querySelector('.your-section-class');
-	// section.style.display = 'block'; // Show the section
+
+	// Determine the corresponding content section based on the clicked button
+	const sectionId = target.getAttribute('data-sectionId'); 
+	const sections = document.querySelectorAll('.section'); 
+	// Hide all content sections
+	sections.forEach(section => (section.style.display = 'none'));
+
+	// Show the corresponding content section
+	const sectionToShow = document.querySelector(`#${sectionId}`);
+	if (sectionToShow) {
+		sectionToShow.style.display = 'block';
+
+	}
 }
 
 // Add click event listeners to all buttons
@@ -30,4 +40,3 @@ buttons.forEach(button => button.addEventListener('click', toggleSection));
 
 // Initially, click the default button (e.g., "Home")
 document.querySelectorAll('.home').forEach(homeButton => homeButton.click());
-
