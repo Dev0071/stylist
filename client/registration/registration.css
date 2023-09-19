@@ -293,10 +293,14 @@ form.sign-in-form {
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
     border-radius: 10px;
+    display: none;
 }
 
 .error{
 background-color: rgb(231, 76, 76);
+}
+.success{
+background-color: rgb(76, 231, 76);
 }
 @media (max-width: 870px) {
     .container {
