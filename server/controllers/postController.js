@@ -123,9 +123,31 @@ export const likePost = async (req, res) => {
 		});
 
 		if (response.rowsAffected[0] === 1) {
-			return res.status(200).json({ message: 'Post liked successfully' });
+			return res.status(200).json({ message: response.recordset[0].message });
 		} else {
 			return res.status(500).json({ error: 'Failed to like post' });
+		}
+	} catch (error) {
+		return res.status(500).json({ error: error.message });
+	}
+};
+
+export const likesCount = async (req, res) => {
+	try {
+		const { postId } = req.body;
+		const likeCount = 0;
+
+		if (!postId) {
+			return res.status(400).json({ error: 'Missing required fields' });
+		}
+
+		const response = await DB.exec('spCountPostLikes', {
+			postId, likeCount
+		});
+		if (response.rowsAffected[0] === 1) {
+			return res.status(200).json({ likesCount: response.recordset[0].likeCount });
+		} else {
+			return res.status(500).json({ error: 'Failed to get likes count' });
 		}
 	} catch (error) {
 		return res.status(500).json({ error: error.message });

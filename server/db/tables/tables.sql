@@ -121,3 +121,5 @@ CREATE TABLE postLikes (
     FOREIGN KEY (postId) REFERENCES Posts(postId),
     FOREIGN KEY (userId) REFERENCES Users(userId)
 );
+
+SELECT * FROM postLikes;

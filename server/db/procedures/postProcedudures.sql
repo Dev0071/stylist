@@ -78,25 +78,48 @@ BEGIN
     SELECT 'Post deleted successfully' AS message;
 END;
 
-
-GO
+Go
 CREATE OR ALTER PROCEDURE spLikeOrUnlikePost
     @postId UNIQUEIDENTIFIER,
     @userId UNIQUEIDENTIFIER
 AS
 BEGIN
+    DECLARE @action NVARCHAR(255);
+
     -- Check if the user has already liked the post
     IF EXISTS (SELECT 1 FROM postLikes WHERE postId = @postId AND userId = @userId)
     BEGIN
         -- Unlike the post (delete the like)
         DELETE FROM postLikes WHERE postId = @postId AND userId = @userId;
-        SELECT 'Post unliked successfully' AS message;
+        SET @action = 'unliked';
     END
     ELSE
     BEGIN
         -- Like the post (insert a new like)
         INSERT INTO postLikes (postId, userId)
         VALUES (@postId, @userId);
-        SELECT 'Post liked successfully' AS message;
+        SET @action = 'liked';
     END
+
+    SELECT CONCAT('Post ', @action, ' successfully') AS message;
+END;
+
+
+
+GO
+CREATE OR ALTER PROCEDURE spCountPostLikes
+    @postId UNIQUEIDENTIFIER,
+    @likeCount INT OUTPUT
+AS
+BEGIN
+    -- Initialize the likeCount variable to 0
+    SET @likeCount = 0;
+
+    -- Count the number of likes for the specified post
+    SELECT @likeCount = COUNT(*) 
+    FROM postLikes 
+    WHERE postId = @postId;
+
+    -- Return the likeCount as the result of the procedure
+    SELECT @likeCount AS likeCount;
 END;

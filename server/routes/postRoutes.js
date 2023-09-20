@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createPost, getPosts, savePost, getSavedPosts, deletePost,likePost} from "../controllers/postController.js";
+import { createPost, getPosts, savePost, getSavedPosts, deletePost,likePost,likesCount} from "../controllers/postController.js";
 import { authenticateToken } from "../middlewares/index.js";
 
 const postRouter = Router();
@@ -12,4 +12,5 @@ postRouter.post('/create', authenticateToken, createPost);
 // postRouter.patch('/:id', authenticateToken, updatePost);
 postRouter.delete('/:id', authenticateToken, deletePost);
 postRouter.post('/like', authenticateToken, likePost )
+postRouter.post('/likesCount', likesCount )
 export default postRouter;

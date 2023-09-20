@@ -98,6 +98,17 @@ const inputValidator = input => {
 	}
 	return;
 };
+const inputValidatorSignIn = input => {
+	if (input.value === '') {
+		errorDiv2.style.display = 'block';
+		errorDiv2.textContent = 'Please fill in the missing field(s)';
+		input.parentElement.style.borderBottom = '3px solid red';
+	} else {
+		errorDiv2.style.display = 'none';
+		input.parentElement.style.borderBottom = '';
+	}
+	return;
+};
 // check if the email is valid
 const isEmailValid = email => {
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -130,7 +141,6 @@ const registerUser = async () => {
 		if (response.ok) {
 			const responseData = await response.json();
 			localStorage.setItem('user', JSON.stringify(responseData.User));
-			console.log(responseData.User);
 			errorDiv.style.display = 'block';
 			errorDiv.textContent = 'Registration successful, redirecting...';
 			errorDiv.style.backgroundColor = 'green';
@@ -149,17 +159,22 @@ const registerUser = async () => {
 		}
 	} catch (error) {
 		console.log(error);
+		errorDiv.style.display = 'block';
+		errorDiv.textContent = 'ops! something went wrong, please try again';
+		clearForm();
+		setTimeout(() => {
+			clearError();
+		}, 3000);
 	}
 };
 
 // login a user
 
 const validateLogIn = () => {
-	inputValidator(logInEmail);
-	inputValidator(logInPassword);
-	if (isEmailValid(logInEmail.value) && isPasswordValid(logInPassword.value)) {
+	inputValidatorSignIn(logInEmail);
+	inputValidatorSignIn(logInPassword);
 		loginUser();
-	}
+	
 };
 
 const loginUser = async () => {
@@ -175,9 +190,8 @@ const loginUser = async () => {
 		if (response.ok) {
 			const responseData = await response.json();
 			localStorage.setItem('user', JSON.stringify(responseData.User));
-			console.log(responseData.User);
+			localStorage.setItem('token', JSON.stringify(responseData.token));
 			errorDiv2.style.display = 'block';
-			console.log(errorDiv2.textContent);
 			errorDiv2.textContent = 'Login successful, redirecting...';
 			errorDiv2.style.backgroundColor = 'green';
 			setTimeout(() => {
@@ -195,6 +209,12 @@ const loginUser = async () => {
 		}
 	} catch (error) {
 		console.log(error);
+		errorDiv2.style.display = 'block';
+		errorDiv2.textContent = 'oops! something went wrong, please try again later';
+		clearForm();
+		setTimeout(() => {
+			clearError();
+		}, 3000);
 	}
 };
 
@@ -207,5 +227,8 @@ const clearForm = () => {
 
 // clear error message
 const clearError = () => {
+	errorDiv.textContent = '';
+	errorDiv2.textContent = '';
 	errorDiv.style.display = 'none';
+	errorDiv2.style.display = 'none';
 };
